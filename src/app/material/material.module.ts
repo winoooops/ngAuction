@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material'
-import { FlexLayoutModule } from '@angular/flex-layout'
+// import { FlexLayoutModule } from '@angular/flex-layout'
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    FlexLayoutModule
+    // FlexLayoutModule
   ]
 })
 export class MaterialModule { }
