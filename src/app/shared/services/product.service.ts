@@ -16,5 +16,16 @@ export interface Product {
 })
 
 export class ProductService {
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getAll(): Observable<Product[]> {
+    return this.http.get<Product[]>('/data/products.json')
+  }
+
+  getId(id: number): Observable<Product> {
+    return this.http.get<Product[]>('/data/products.json')
+      .pipe(
+        map(products => <Product>products.find(product => product.id === id))
+      )
+  }
 }
