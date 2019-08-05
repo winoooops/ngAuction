@@ -12,7 +12,7 @@ import { ProductService, Product } from '../shared/services/product.service';
 })
 export class HomeComponent {
   readonly products$: Observable<Product[]>
-
+  readonly columns$: number
   // on xs viewport, only plays 1 column 
   // ......
   readonly breakpointsToColumnsNumber = new Map([
