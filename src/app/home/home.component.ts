@@ -14,8 +14,8 @@ export class HomeComponent {
   watcher: Subscription
 
 
-  products$: Observable<Product[]>
-  columns$: number
+  products: Product[]
+  columns: number
 
   // on xs viewport, only plays 1 column 
   // ......
@@ -31,10 +31,15 @@ export class HomeComponent {
     private productService: ProductService,
     private mediaObserver: MediaObserver
   ) {
-    this.products$ = this.productService.getAll()
-
+   
+    
     this.watcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
-      this.columns$ = this.breakpointsToColumnsNumber.get(change.mqAlias)
+      this.columns = this.breakpointsToColumnsNumber.get(change.mqAlias)
+     
+      this.productService.getAll()
+        .subscribe((products) => {
+          this.products = products
+        })
     })
   }
 
