@@ -25,6 +25,7 @@ export class HomeComponent {
 
   constructor(
     private productService: ProductService,
+    private mediaObserver: MediaObserver
   ) {
 
   }
