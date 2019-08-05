@@ -11,11 +11,15 @@ import { ProductService, Product } from '../shared/services/product.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  readonly products$: Observable<Product[]>
-  readonly columns$: number
+  watcher: Subscription
+
+
+  products$: Observable<Product[]>
+  columns$: number
+
   // on xs viewport, only plays 1 column 
   // ......
-  readonly breakpointsToColumnsNumber = new Map([
+  breakpointsToColumnsNumber = new Map([
     ['xs', 1],
     ['sm', 2],
     ['md', 3],
@@ -27,7 +31,11 @@ export class HomeComponent {
     private productService: ProductService,
     private mediaObserver: MediaObserver
   ) {
+    this.products$ = this.productService.getAll()
 
+    this.watcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
+      console.log(change.mqAlias)
+    })
   }
 
 }
