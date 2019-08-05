@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
+import { ProductService } from './shared/services/product.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { MaterialModule } from './material/material.module';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
