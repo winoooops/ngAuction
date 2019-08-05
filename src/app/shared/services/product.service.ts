@@ -19,11 +19,11 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>('/assets/products.json')
+    return this.http.get<Product[]>('../assets/products.json')
   }
 
   getId(id: number): Observable<Product> {
-    return this.http.get<Product[]>('/assets/products.json')
+    return this.http.get<Product[]>('../assets/products.json')
       .pipe(
         map(products => <Product>products.find(product => product.id === id))
       )

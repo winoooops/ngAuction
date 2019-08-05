@@ -35,10 +35,12 @@ export class HomeComponent {
     
     this.watcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
       this.columns = this.breakpointsToColumnsNumber.get(change.mqAlias)
-     
+      
       this.productService.getAll()
         .subscribe((products) => {
           this.products = products
+          // console.log( this.products )
+          // console.log( this.columns )
         })
     })
   }
