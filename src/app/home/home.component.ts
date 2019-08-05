@@ -34,7 +34,7 @@ export class HomeComponent {
     this.products$ = this.productService.getAll()
 
     this.watcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
-      console.log(change.mqAlias)
+      this.columns$ = this.breakpointsToColumnsNumber.get(change.mqAlias)
     })
   }
 
